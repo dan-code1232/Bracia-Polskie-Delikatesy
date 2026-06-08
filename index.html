@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bracia Polskie Delikatesy is a Polish deli and supermarket in Palmers Green, London. Fresh bread, meats, smoked fish, cakes, imported groceries, and authentic Polish products." />
+  <meta name="theme-color" content="#7b1113" />
+  <title>Bracia Polskie Delikatesy | Polish Deli in Palmers Green, London</title>
+
+  <style>
+    :root{
+      --bg:#0e1116;
+      --panel:#141922;
+      --panel2:#191f2b;
+      --card:#1b2230;
+      --card2:#20283a;
+      --text:#f5f7fb;
+      --muted:#adb7c8;
+      --brand:#c62026;
+      --brand2:#f59e0b;
+      --line:rgba(255,255,255,.09);
+      --shadow:0 20px 60px rgba(0,0,0,.42);
+      --radius:24px;
+      --max:1200px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Inter, Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:
+        radial-gradient(circle at top left, rgba(198,32,38,.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(245,158,11,.10), transparent 30%),
+        linear-gradient(180deg, #0b0e13, #111622 48%, #0e1116 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px;
+    }
+
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(16px);
+      background:rgba(10,12,18,.78);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:-0.03em;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg, var(--brand), #e24b3b);
+      box-shadow:0 10px 30px rgba(198,32,38,.35);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-weight:700;
+      font-size:.96rem;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .lang-btn{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .hero{
+      position:relative;
+      min-height:640px;
+      border-radius:32px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:#000;
+    }
+
+    .carousel{
+      position:absolute;
+      inset:0;
+      overflow:hidden;
+    }
+
+    .track{
+      display:flex;
+      width:300%;
+      height:100%;
+      animation:slide 18s infinite;
+    }
+
+    .slide{
+      width:100%;
+      flex:0 0 100%;
+      background-size:cover;
+      background-position:center;
+      filter:brightness(.55) saturate(1.08);
+    }
+
+    .slide.one{background-image:url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80');}
+    .slide.two{background-image:url('https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1600&q=80');}
+    .slide.three{background-image:url('https://images.unsplash.com/photo-1600628422019-3d1c9c6d7c1a?auto=format&fit=crop&w=1600&q=80');}
+
+    @keyframes slide{
+      0%,28%{transform:translateX(0);}
+      33%,61%{transform:translateX(-100%);}
+      66%,94%{transform:translateX(-200%);}
+      100%{transform:translateX(0);}
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(14,17,22,.12), rgba(14,17,22,.84)),
+        linear-gradient(90deg, rgba(14,17,22,.68), rgba(14,17,22,.20));
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      min-height:640px;
+      display:flex;
+      align-items:center;
+      padding:42px 28px;
+    }
+
+    .hero-grid{
+      max-width:760px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(10px);
+      margin-bottom:18px;
+      font-size:.92rem;
+    }
+
+    h1{
+      font-size:clamp(2.6rem,6vw,5.2rem);
+      line-height:1;
+      letter-spacing:-0.05em;
+      margin-bottom:16px;
+      text-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .hero p{
+      font-size:1.12rem;
+      color:#e6ebf4;
+      max-width:680px;
+      margin-bottom:26px;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:14px;
+      font-weight:900;
+      min-width:170px;
+      transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn.primary{
+      color:#fff;
+      background:linear-gradient(135deg, var(--brand), #e24b3b);
+      box-shadow:0 18px 38px rgba(198,32,38,.28);
+    }
+
+    .btn.secondary{
+      color:#fff;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(10px);
+      border-radius:18px;
+      padding:14px;
+    }
+
+    .stat strong{
+      display:block;
+      margin-bottom:3px;
+      font-size:1.04rem;
+    }
+
+    .section{
+      margin-top:18px;
+      padding:24px;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .section h2{
+      font-size:1.5rem;
+      margin-bottom:10px;
+    }
+
+    .section p{
+      color:var(--muted);
+    }
+
+    .pill-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .pill{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      transition:transform .15s ease, background .15s ease;
+    }
+
+    .pill:hover{
+      transform:translateY(-2px);
+      background:var(--card2);
+    }
+
+    .pill strong{
+      display:block;
+      margin-bottom:4px;
+      color:#fff;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .card{
+      overflow:hidden;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      transition:transform .15s ease, border-color .15s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(245,158,11,.3);
+    }
+
+    .card-img{
+      height:170px;
+      background-size:cover;
+      background-position:center;
+    }
+
+    .card-body{
+      padding:14px;
+    }
+
+    .card-body strong{
+      display:block;
+      margin-bottom:4px;
+      color:#fff;
+    }
+
+    .review-wrap{
+      overflow:hidden;
+      margin-top:14px;
+      border-radius:18px;
+    }
+
+    .review-track{
+      display:flex;
+      gap:14px;
+      width:max-content;
+      animation:scrollReviews 24s linear infinite;
+    }
+
+    @keyframes scrollReviews{
+      from{transform:translateX(0);}
+      to{transform:translateX(-50%);}
+    }
+
+    .review-card{
+      width:320px;
+      flex:0 0 auto;
+      padding:18px;
+      border-radius:18px;
+      background:rgba(245,158,11,.08);
+      border:1px solid rgba(245,158,11,.18);
+      color:#f7f0df;
+      box-shadow:0 10px 24px rgba(0,0,0,.18);
+    }
+
+    .review-card strong{
+      display:block;
+      margin-bottom:6px;
+      color:#fff;
+    }
+
+    .review-card span{
+      color:#f2cf92;
+      font-size:.95rem;
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .contact{
+      padding:16px;
+      border-radius:16px;
+      background:var(--card);
+      border:1px solid var(--line);
+    }
+
+    .contact strong{
+      display:block;
+      margin-bottom:6px;
+      color:#fff;
+    }
+
+    .map{
+      width:100%;
+      height:340px;
+      border:0;
+      margin-top:16px;
+      border-radius:18px;
+    }
+
+    .hidden{display:none;}
+
+    footer{
+      padding:28px 0 10px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    @media (max-width:900px){
+      .stats{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width:640px){
+      .hero,
+      .hero-content{
+        min-height:580px;
+      }
+
+      .cta-row .btn{
+        width:100%;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .nav-inner{
+        justify-content:center;
+        text-align:center;
+      }
+
+      .review-card{
+        width:280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>Bracia Polskie Delikatesy</div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">Polski</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="carousel" aria-hidden="true">
+        <div class="track">
+          <div class="slide one"></div>
+          <div class="slide two"></div>
+          <div class="slide three"></div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-grid">
+          <div class="eyebrow" data-en="Polish deli • Fresh groceries • Palmers Green" data-pl="Polski sklep • Świeże produkty • Palmers Green">Polish deli • Fresh groceries • Palmers Green</div>
+          <h1 data-en="Modern, Fresh, Authentic" data-pl="Nowocześnie, świeżo, autentycznie">Modern, Fresh, Authentic</h1>
+          <p data-en="Bracia Polskie Delikatesy is a vibrant Polish food shop with fresh bread, meats, smoked fish, cakes, imported groceries, and a busy local feel." data-pl="Bracia Polskie Delikatesy to tętniący życiem polski sklep spożywczy z pieczywem, wędlinami, rybami wędzonymi, ciastami i importowanymi produktami.">Bracia Polskie Delikatesy is a vibrant Polish food shop with fresh bread, meats, smoked fish, cakes, imported groceries, and a busy local feel.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="tel:02088816239" data-en="Call Now" data-pl="Zadzwoń">Call Now</a>
+            <a class="btn secondary" href="https://www.google.com/maps?q=20-22+Green+Lanes,+London+N13+6HT" target="_blank" rel="noopener" data-en="Get Directions" data-pl="Mapa i dojazd">Get Directions</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>20–22 Green Lanes</strong><span data-en="London N13 6HT" data-pl="Londyn N13 6HT">London N13 6HT</span></div>
+            <div class="stat"><strong>020 8881 6239</strong><span data-en="Direct line" data-pl="Telefon">Direct line</span></div>
+            <div class="stat"><strong>Mon–Sat 8–10</strong><span data-en="Open late" data-pl="Otwarte do późna">Open late</span></div>
+            <div class="stat"><strong>Sun 9–9</strong><span data-en="Weekend hours" data-pl="Godziny weekendowe">Weekend hours</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2 data-en="About the shop" data-pl="O sklepie">About the shop</h2>
+      <p data-en="Public listings describe Bracia Polskie Delikatesy as a specialist food shop at 20–22 Green Lanes, London N13 6HT, and the Facebook page shows a busy local business with strong customer response." data-pl="Publiczne wpisy pokazują Bracia Polskie Delikatesy jako sklep spożywczy przy 20–22 Green Lanes, London N13 6HT, a Facebook pokazuje aktywny lokalny biznes z dobrym odbiorem klientów.">Public listings describe Bracia Polskie Delikatesy as a specialist food shop at 20–22 Green Lanes, London N13 6HT, and the Facebook page shows a busy local business with strong customer response.</p>
+    </section>
+
+    <section class="section" id="reviews">
+      <h2 data-en="Customer reviews" data-pl="Opinie klientów">Customer reviews</h2>
+      <div class="review-wrap">
+        <div class="review-track" id="reviewTrack">
+          <div class="review-card">
+            <strong>Anna K.</strong>
+            <span data-en="English" data-pl="Polski">English</span>
+            <div data-en="The shop is well stocked and the staff are always friendly." data-pl="Sklep jest dobrze zaopatrzony, a obsługa zawsze miła.">The shop is well stocked and the staff are always friendly.</div>
+          </div>
+          <div class="review-card">
+            <strong>Piotr W.</strong>
+            <span data-en="English" data-pl="Polski">English</span>
+            <div data-en="Best Polish shop in the area. Fresh food every time." data-pl="Najlepszy polski sklep w okolicy. Zawsze świeże jedzenie.">Best Polish shop in the area. Fresh food every time.</div>
+          </div>
+          <div class="review-card">
+            <strong>Maria S.</strong>
+            <span data-en="English" data-pl="Polski">English</span>
+            <div data-en="Great selection of meats, cakes, and imported groceries." data-pl="Duży wybór wędlin, ciast i importowanych produktów.">Great selection of meats, cakes, and imported groceries.</div>
+          </div>
+          <div class="review-card">
+            <strong>Tomasz P.</strong>
+            <span data-en="English" data-pl="Polski">English</span>
+            <div data-en="Busy shop, but worth visiting. Good prices too." data-pl="Ruchliwy sklep, ale warto. Dobre ceny.">Busy shop, but worth visiting. Good prices too.</div>
+          </div>
+          <div class="review-card">
+            <strong>Anna K.</strong>
+            <span data-en="English" data-pl="Polski">English</span>
+            <div data-en="The shop is well stocked and the staff are always friendly." data-pl="Sklep jest dobrze zaopatrzony, a obsługa zawsze miła.">The shop is well stocked and the staff are always friendly.</div>
+          </div>
+          <div class="review-card">
+            <strong>Piotr W.</strong>
+            <span data-en="English" data-pl="Polski">English</span>
+            <div data-en="Best Polish shop in the area. Fresh food every time." data-pl="Najlepszy polski sklep w okolicy. Zawsze świeże jedzenie.">Best Polish shop in the area. Fresh food every time.</div>
+          </div>
+          <div class="review-card">
+            <strong>Maria S.</strong>
+            <span data-en="English" data-pl="Polski">English</span>
+            <div data-en="Great selection of meats, cakes, and imported groceries." data-pl="Duży wybór wędlin, ciast i importowanych produktów.">Great selection of meats, cakes, and imported groceries.</div>
+          </div>
+          <div class="review-card">
+            <strong>Tomasz P.</strong>
+            <span data-en="English" data-pl="Polski">English</span>
+            <div data-en="Busy shop, but worth visiting. Good prices too." data-pl="Ruchliwy sklep, ale warto. Dobre ceny.">Busy shop, but worth visiting. Good prices too.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <h2 data-en="Popular products" data-pl="Popularne produkty">Popular products</h2>
+      <div class="cards">
+        <div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80');"></div><div class="card-body"><strong data-en="Fresh bread" data-pl="Świeże pieczywo">Fresh bread</strong><span data-en="Daily bakery items and pastries." data-pl="Codziennie świeże wypieki i ciastka.">Daily bakery items and pastries.</span></div></div>
+        <div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1547592183-78b65b9f3b40?auto=format&fit=crop&w=900&q=80');"></div><div class="card-body"><strong data-en="Polish meats" data-pl="Polskie wędliny">Polish meats</strong><span data-en="Deli classics and traditional favourites." data-pl="Klasyczne wędliny i tradycyjne produkty.">Deli classics and traditional favourites.</span></div></div>
+        <div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1563379091339-03246963d8ed?auto=format&fit=crop&w=900&q=80');"></div><div class="card-body"><strong data-en="Cakes and desserts" data-pl="Ciasta i desery">Cakes and desserts</strong><span data-en="Sweet items for everyday and special occasions." data-pl="Słodkości na co dzień i na wyjątkowe okazje.">Sweet items for everyday and special occasions.</span></div></div>
+        <div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1481931715705-36f693f7c8f6?auto=format&fit=crop&w=900&q=80');"></div><div class="card-body"><strong data-en="Imported groceries" data-pl="Produkty importowane">Imported groceries</strong><span data-en="Products customers know and trust." data-pl="Produkty, które klienci znają i lubią.">Products customers know and trust.</span></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2 data-en="Contact and location" data-pl="Kontakt i lokalizacja">Contact and location</h2>
+      <div class="contact-grid">
+        <div class="contact">
+          <strong data-en="Address" data-pl="Adres">Address</strong>
+          20–22 Green Lanes<br />
+          Palmers Green<br />
+          London N13 6HT
+        </div>
+        <div class="contact">
+          <strong data-en="Phone" data-pl="Telefon">Phone</strong>
+          <a href="tel:02088816239">020 8881 6239</a>
+        </div>
+        <div class="contact">
+          <strong data-en="Opening hours" data-pl="Godziny otwarcia">Opening hours</strong>
+          Mon–Sat: 8:00 AM–10:00 PM<br />
+          Sun: 9:00 AM–9:00 PM
+        </div>
+      </div>
+
+      <div class="cta-row" style="margin-top:16px;">
+        <a class="btn primary" href="tel:02088816239" data-en="Call Now" data-pl="Zadzwoń">Call Now</a>
+        <a class="btn secondary" href="https://www.google.com/maps?q=20-22+Green+Lanes,+London+N13+6HT" target="_blank" rel="noopener" data-en="Open in Maps" data-pl="Otwórz mapy">Open in Maps</a>
+      </div>
+
+      <iframe
+        class="map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=20-22+Green+Lanes,+London+N13+6HT&output=embed"
+        title="Bracia Polskie Delikatesy map">
+      </iframe>
+    </section>
+
+    <footer>
+      Bracia Polskie Delikatesy • Palmers Green, London
+    </footer>
+  </main>
+
+  <script>
+    let currentLang = "en";
+
+    function toggleLanguage() {
+      currentLang = currentLang === "en" ? "pl" : "en";
+      document.documentElement.lang = currentLang;
+      document.getElementById("langBtn").textContent = currentLang === "en" ? "Polski" : "English";
+
+      document.querySelectorAll("[data-en][data-pl]").forEach(el => {
+        el.textContent = el.getAttribute(`data-${currentLang}`);
+      });
+
+      document.querySelectorAll(".review-card span").forEach(el => {
+        el.textContent = currentLang === "en" ? "English" : "Polski";
+      });
+    }
+  </script>
+</body>
+</html>
